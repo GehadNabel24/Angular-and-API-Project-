@@ -1,0 +1,325 @@
+<link
+  href="../admin/vendor/fontawesome-free/css/all.min.css"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+  rel="stylesheet"
+/>
+
+<!-- Custom styles for this template-->
+<link href="../admin/css/sb-admin-2.min.css" rel="stylesheet" />
+
+<!-- content -->
+<div class="container">
+  <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+      <!-- Nested Row within Card Body -->
+      <div class="row">
+        <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+        <div class="col-lg-7">
+          <div class="p-5">
+            <div class="text-center">
+              <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+            </div>
+            <form class="user" [formGroup]="registerForm" (ngSubmit)="handleForm()">
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input
+                    type="text"
+                    class="form-control form-control-user"
+                    id="exampleFirstName"
+                    placeholder="First Name"
+                    formControlName="firstName"
+                  />
+                  <div
+                    *ngIf="
+                      registerForm.get('firstName')?.errors &&
+                      registerForm.get('firstName')?.touched
+                    "
+                    class="alert alert-danger p-1 small w-50 mx-auto"
+                  >
+                    <p
+                      class="mb-0"
+                      *ngIf="
+                        registerForm.get('firstName')?.getError('required')
+                      "
+                    >
+                      firstName is Required
+                    </p>
+                    <p
+                      class="mb-0"
+                      *ngIf="
+                        registerForm.get('firstName')?.getError('minlength')
+                      "
+                    >
+                      firstName Min Length 3
+                    </p>
+                    <p
+                      class="mb-0"
+                      *ngIf="
+                        registerForm.get('firstName')?.getError('maxlength')
+                      "
+                    >
+                      firstName Max Length 10
+                    </p>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control form-control-user"
+                    id="exampleLastName"
+                    placeholder="Last Name"
+                  />
+                </div>
+              </div>
+              <div class="mb-2">
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control form-control-user"
+                  id="email"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter Email Address..."
+                />
+                <div
+                  *ngIf="
+                    registerForm.get('email')?.errors &&
+                    registerForm.get('email')?.touched
+                  "
+                  class="alert alert-danger"
+                >
+                  <p *ngIf="registerForm.get('email')?.getError('required')">
+                    email is Required
+                  </p>
+                  <p *ngIf="registerForm.get('email')?.getError('email')">
+                    invalid Email
+                  </p>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input
+                    type="password"
+                    class="form-control form-control-user"
+                    id="exampleInputPassword"
+                    placeholder="Password"
+                    formControlName="password"
+                  />
+                  <div
+                    *ngIf="
+                      registerForm.get('password')?.errors &&
+                      registerForm.get('password')?.touched
+                    "
+                    class="alert alert-danger p-1 small w-50 mx-auto"
+                  >
+                    <p
+                      class="mb-0"
+                      *ngIf="registerForm.get('password')?.getError('required')"
+                    >
+                      password is Required
+                    </p>
+                    <p
+                      class="mb-0"
+                      *ngIf="registerForm.get('password')?.getError('pattern')"
+                    >
+                      must be at least 6 chars
+                    </p>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <input
+                    type="password"
+                    class="form-control form-control-user"
+                    id="exampleRepeatPassword"
+                    placeholder="Repeat Password"
+                    formControlName="confirmPassword"
+                  />
+                  <div
+                    *ngIf="
+                      registerForm.get('password')?.errors &&
+                      registerForm.get('password')?.touched
+                    "
+                    class="alert alert-danger p-1 small w-50 mx-auto"
+                  >
+                    <p
+                      class="mb-0"
+                      *ngIf="registerForm.get('password')?.getError('required')"
+                    >
+                      password is Required
+                    </p>
+                    <p
+                      class="mb-0"
+                      *ngIf="registerForm.get('password')?.getError('pattern')"
+                    >
+                      must be at least 6 chars
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <a  class="btn btn-primary btn-user btn-block" onclick="handleForm()">
+                Register Account
+              </a>
+              <hr />
+              <a href="index.html" class="btn btn-google btn-user btn-block">
+                <i class="fab fa-google fa-fw"></i> Register with Google
+              </a>
+              <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+              </a>
+            </form>
+            <hr />
+            <div class="text-center">
+              <a class="small" href="forgot-password.html">Forgot Password?</a>
+            </div>
+            <div class="text-center">
+              <a class="small" href="login.html"
+                >Already have an account? Login!</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Bootstrap core JavaScript-->
+<script src="../admin/vendor/jquery/jquery.min.js"></script>
+<script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="../admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="../admin/js/sb-admin-2.min.js"></script>
+
+<!-- <section class="rounded w-75 my-2 mx-auto bg-main-light p-2">
+  <h1>Register Now</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="mb-2">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        formControlName="fullName"
+        class="form-control"
+        id="name"
+      />
+      <div
+        *ngIf="
+          registerForm.get('fullName')?.errors &&
+          registerForm.get('fullName')?.touched
+        "
+        class="alert alert-danger"
+      >
+        <p *ngIf="registerForm.get('fullName')?.getError('required')">
+          Name is Required
+        </p>
+        <p *ngIf="registerForm.get('fullName')?.getError('minlength')">
+          Name Min length is 3
+        </p>
+        <p *ngIf="registerForm.get('fullName')?.getError('maxlength')">
+          Name Max length is 12
+        </p>
+      </div>
+    </div>
+    <div class="mb-2">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        formControlName="email"
+        class="form-control"
+        id="email"
+      />
+      <div
+        *ngIf="
+          registerForm.get('email')?.errors &&
+          registerForm.get('email')?.touched
+        "
+        class="alert alert-danger"
+      >
+        <p *ngIf="registerForm.get('email')?.getError('required')">
+          email is Required
+        </p>
+        <p *ngIf="registerForm.get('email')?.getError('email')">
+          invalid Email
+        </p>
+      </div>
+    </div>
+    <div class="mb-2">
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        formControlName="password"
+        class="form-control"
+        id="password"
+      />
+      <div
+        *ngIf="
+          registerForm.get('password')?.errors &&
+          registerForm.get('password')?.touched
+        "
+        class="alert alert-danger"
+      >
+        <p *ngIf="registerForm.get('password')?.getError('required')">
+          password is Required
+        </p>
+        <p *ngIf="registerForm.get('password')?.getError('pattern')">
+          must be at least 6 chars
+        </p>
+      </div>
+    </div>
+    <div class="mb-2">
+      <label for="rePassword">rePassword:</label>
+      <input
+        type="password"
+        formControlName="rePassword"
+        class="form-control"
+        id="rePassword"
+      />
+      <div
+        *ngIf="
+          registerForm.get('rePassword')?.errors &&
+          registerForm.get('rePassword')?.touched
+        "
+        class="alert alert-danger"
+      >
+        <p *ngIf="registerForm.get('rePassword')?.getError('required')">
+          rePassword is Required
+        </p>
+        <p *ngIf="registerForm.get('rePassword')?.getError('pattern')">
+          Password confirmation is incorrect
+        </p>
+      </div>
+    </div>
+    <div class="mb-2">
+      <label for="phone">phone:</label>
+      <input
+        type="tel"
+        formControlName="phoneNumber"
+        class="form-control"
+        id="phone"
+      />
+      <div
+        *ngIf="
+          registerForm.get('phone')?.errors &&
+          registerForm.get('phone')?.touched
+        "
+        class="alert alert-danger"
+      >
+        <p *ngIf="registerForm.get('phone')?.getError('required')">
+          phone is Required
+        </p>
+        <p *ngIf="registerForm.get('phone')?.getError('pattern')">
+          accept only egypt phone numbers
+        </p>
+      </div>
+    </div>
+    <button [disabled]="registerForm.invalid" class="btn-main mx-auto d-block">
+      <i *ngIf="Loading" class="fas fa-spin fa-spinner"></i>
+      Submit
+    </button>
+    <p *ngIf="submitError" class="alert alert-danger">{{ submitError }}</p>
+  </form>
+</section> -->

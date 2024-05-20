@@ -1,0 +1,46 @@
+<!-- All Product -->
+<section class="py-4" >
+    <h2>Popular Products</h2>
+    <input
+      type="text"
+      class="form-control w-50 mx-auto form-control-sm my-3"
+      placeholder="Search..."
+      [(ngModel)]="searchterm"
+    />
+    <div class="row g-4">
+      <div *ngFor="let product of products|search:searchterm" class="col-md-2">
+        <div class="product p-1">
+          <div [routerLink]="['/details', product.id]">
+            <img
+              class="w-100 h-80"
+              [src]="product.image"
+              [alt]="product.name"
+            />
+  
+            <h3 class="h6">{{ product.name.split(" ").slice(0,2).join(" ")  }}</h3>
+            <h4 class="h6">
+              {{ product.description.split(" ").slice(0, 3).join(" ") }}
+            </h4>
+            <div class="d-flex align-items-center justify-content-between">
+              <span>{{ product.price }}</span>
+              <div>
+                <span>{{ product.rating }}</span>
+                <i class="bi text-warning bi-star-fill"></i>
+              </div>
+            </div>
+          </div>
+  
+          <div class="icons">
+            <i
+            [routerLink]="['/details', product.id]"
+              class="mx-3 fs-3 text-warning bi bi-eye-fill"
+            ></i>
+            <i class="mx-3 fs-3 text-danger bi-regular bi-heart heart"></i>
+            <i (click)="addtoCart(product.id)" class="mx-3 fs-3 text-success bi bi-cart"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  

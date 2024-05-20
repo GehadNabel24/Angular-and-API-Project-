@@ -1,0 +1,9 @@
+/* .product .icons
+{
+    transform: translateY(150%);
+    transition: .5s;
+}
+.product:hover .icons
+{
+    transform: translateY(0%); 
+} */
