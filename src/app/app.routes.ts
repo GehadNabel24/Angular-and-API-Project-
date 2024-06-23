@@ -1,5 +1,5 @@
-import { AdminComponent } from './Componant/admin/admin.component';
 import { ContactComponent } from './Componant/contact/contact.component';
+import { AdminComponent } from './Componant/admin/admin.component';
 import { CheckoutComponent } from './Componant/checkout/checkout.component';
 import { authUserGuard } from './shared/guards/auth-user.guard';
 import { RegisterComponent } from './Componant/register/register.component';
@@ -44,6 +44,7 @@ export const routes: Routes = [
     ],
   },
   {  path: 'admin', component: AdminComponent }
-  ,
+,
+
   { path: '**', component: NotFoundComponent, title: 'Error' },
 ];

@@ -22,5 +22,11 @@ export class AllproductService {
     
     return  this._HttpClient.get(`https://localhost:5000/api/Products/types`)
   }
+  removeProduct(id: number | null):Observable<any>
+  {
+    
+    return  this._HttpClient.get(`http://localhost:5000/api/Products/${id}`)
+  }
+
 
 }

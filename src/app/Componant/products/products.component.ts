@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit {
 
   addtoCart(id: number): void 
   {
-    this._CartService.addtocart(id).subscribe({
+    this._CartService.addToCart(id).subscribe({
       next: (response) => {
         console.log(response);
         console.log('product add to DB');

@@ -4,6 +4,8 @@ import { AuthService } from '../../shared/services/auth.service';
 import { AccountService } from '../account/account.service';
 import { BasketItem } from '../../shared/models/basket';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../shared/services/CartService';
+import { count } from 'rxjs';
 
 @Component({
   selector: 'app-nav-main',
@@ -13,11 +15,20 @@ import { CommonModule } from '@angular/common';
   styleUrl: './nav-main.component.css',
 })
 export class NavMainComponent {
-  constructor(private _AuthService: AuthService) {}
+  constructor(private _AuthService: AuthService,private _CartService: CartService) {}
   userLogout(): void {
     this._AuthService.LogOut()
   }
-  getCount(items: BasketItem[]) {
-    return items.reduce((sum, item) => sum + item.quantity, 0);
+  products: number=0;
+
+  ngOnInit(): void {
+    this._CartService.getCartItems().subscribe({
+      next: (cartItems) => {
+        this.products = cartItems.reduce((total, item) => cartItems.length, 0);
+      },
+      error: (err) => {
+        console.error('Error fetching cart items', err);
+      }
+    });
   }
 }
