@@ -30,13 +30,14 @@
     <div *ngFor="let product of products|search:searchterm" class="mix col-lg-3 col-md-6 best">
       <div class="product-item">
         <figure>
-          <img class="w-100" [src]="product.image" alt="Gehad do" />
+          <img class="w-100 h-358px" [src]="product.image" alt="Gehad do" />
           <div class="pi-meta">
             <div class="pi-m-left">
               <img
                 src="/assets/img/icons/eye.png"
                 [routerLink]="['/details', product.id]"
                 alt=""
+                
               />
               <p>quick view</p>
             </div>

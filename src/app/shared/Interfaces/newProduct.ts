@@ -1,16 +1,15 @@
 import { Category } from './category';
 
-export interface Product {
-    id:number;
+export interface newProduct {
+    
     name: string;
     price: number;
     image: string;    
     rating: number;   
     quantity: number;
     discount: number;
-    categoryId: string;
+    categoryId: number;
     description:string;  
-    Category:string
     
   }
   

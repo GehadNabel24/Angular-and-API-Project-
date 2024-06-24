@@ -9,9 +9,9 @@ import { SearchPipe } from '../../shared/pipe/search.pipe';
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule,SearchPipe],
+  imports: [RouterLink, CommonModule, FormsModule, SearchPipe],
   templateUrl: './admin.component.html',
-  styleUrl: './admin.component.css'
+  styleUrl: './admin.component.css',
 })
 export class AdminComponent {
   products: Product[] = [];
@@ -32,12 +32,12 @@ export class AdminComponent {
       this.products = response;
     });
   }
-  removeProductFromStore(id: number): void 
-  {
+  removeProductFromStore(id: number): void {
     this._AllproductService.removeProduct(id).subscribe({
       next: (response) => {
         console.log(response);
         console.log('product remove');
+        this.getProducts();
       },
       error: (err) => {
         console.log(err);

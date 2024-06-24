@@ -15,6 +15,8 @@ import { CartComponent } from './Componant/cart/cart.component';
 import { BrandsComponent } from './Componant/brands/brands.component';
 import { AuthenLayoutComponent } from './Componant/authen-layout/authen-layout.component';
 import { DetailsComponent } from './Componant/details/details.component';
+import { EditProductComponent } from './Componant/admin/edit-product/edit-product.component';
+import { AddProductComponent } from './Componant/admin/add-product/add-product.component';
 export const routes: Routes = [
   //{path:"",component:HomeComponent,pathMatch:"full",title:"Home Page"},
   {
@@ -43,7 +45,10 @@ export const routes: Routes = [
       { path: 'register', component: RegisterComponent },
     ],
   },
-  {  path: 'admin', component: AdminComponent }
+  {  path: 'admin', component: AdminComponent },
+  {  path: 'admin/edit-product/:id', component: EditProductComponent },
+  {  path: 'admin/Add-product', component: AddProductComponent }
+
 ,
 
   { path: '**', component: NotFoundComponent, title: 'Error' },

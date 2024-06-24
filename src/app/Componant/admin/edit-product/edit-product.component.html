@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Edit Product</h2>
+  <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+    <div class="form-items">
+      <div class="mb-3">
+        <label for="name">Product Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="productDetails.name" name="name">
+      </div>
+      <div class="mb-3">
+        <label for="price">Price</label>
+        <input type="number" class="form-control" id="price" required [(ngModel)]="productDetails.price" name="price">
+      </div>
+      <div class="mb-3">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" required [(ngModel)]="productDetails.description" name="description"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" id="quantity" required [(ngModel)]="productDetails.quantity" name="quantity">
+      </div>
+      <div class="mb-3">
+        <label for="image">Image URL</label>
+        <input type="text" class="form-control" id="image" required [(ngModel)]="productDetails.image" name="image">
+      </div>
+      <div class="form-button mt-3">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+    </div>
+  </form>
+</div>

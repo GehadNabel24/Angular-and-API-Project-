@@ -1,3 +1,4 @@
+import { Category } from './../Interfaces/category';
 export interface Product {
     id: number;
     name: string;
@@ -6,6 +7,8 @@ export interface Product {
     pictureUrl: string;
     productType: string;
     productBrand: string;
+    categoryId:number;
+    Category:string
 }
 
 export class Product implements Product {}

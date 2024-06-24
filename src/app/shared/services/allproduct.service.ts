@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { newProduct } from '../Interfaces/newProduct';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,17 @@ import { Observable } from 'rxjs';
 export class AllproductService {
 
   constructor(private _HttpClient:HttpClient) { }
-
+  product:any={
+    
+    name: "",
+    price: 120,
+    image: "",    
+    rating: 4,   
+    quantity: 10,
+    discount: 10,
+    category: "bag",
+    description:""  
+  };
   getAllProduct():Observable<any>
   {
     
@@ -25,8 +36,15 @@ export class AllproductService {
   removeProduct(id: number | null):Observable<any>
   {
     
-    return  this._HttpClient.get(`http://localhost:5000/api/Products/${id}`)
+    return  this._HttpClient.delete(`http://localhost:5000/api/Products/${id}`)
+    
   }
+ 
+  getProductDetails(productId: number): Observable<any> {
+    return this._HttpClient.get(`http://localhost:5000/api/Products/${productId}`);    
+  
+  }
+ 
 
 
 }
